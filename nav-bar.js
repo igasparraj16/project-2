@@ -8,15 +8,15 @@ import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 import "./nav-bar.js";
 
 /**
- * `project-2`
+ * `nav-bar`
  * 
  * @demo index.html
- * @element project-2
+ * @element nav-bar
  */
-export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
+export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "project-2";
+    return "nav-bar";
   }
 
   constructor() {
@@ -26,11 +26,14 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
     this.t = {
       ...this.t,
       title: "Title",
+      homeLink: "/",
+      aboutLink: "/about",
+      contactLink: "/contact"
     };
     this.registerLocalization({
       context: this,
       localesPath:
-        new URL("./locales/project-2.ar.json", import.meta.url).href +
+        new URL("./locales/nav-bar.ar.json", import.meta.url).href +
         "/../",
     });
   }
@@ -60,6 +63,20 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
       h3 span {
         font-size: var(--project-2-label-font-size, var(--ddd-font-size-s));
       }
+      .bar-items {
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+      }
+      .nav-links {
+      display: flex;
+      justify-content: space-between;
+      margin-top: var(--ddd-spacing-4);
+      gap: var(--ddd-spacing-4);
+      }
+      .logo {
+        height: 100px;
+      }
     `];
   }
 
@@ -68,6 +85,14 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
     return html`
 <div class="wrapper">
   <h3><span>${this.t.title}:</span> ${this.title}</h3>
+  <div class="bar-items">
+    <img src="https://www.sportaccord.sport/iff-2023/wp-content/uploads/sites/2/2020/11/IJRU.png" alt="IJRU Logo" class="logo">
+    <div class="nav-links">
+        <a href=${this.t.homeLink}>Home</a>
+        <a href=${this.t.aboutLink}>About</a>
+        <a href=${this.t.contactLink}>Contact</a>
+    </div>
+  </div>
   <slot></slot>
 </div>`;
   }
@@ -81,4 +106,4 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(Project2.tag, Project2);
+globalThis.customElements.define(NavBar.tag, NavBar);
