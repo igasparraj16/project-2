@@ -72,7 +72,8 @@ export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
       display: flex;
       justify-content: space-between;
       margin-top: var(--ddd-spacing-4);
-      gap: var(--ddd-spacing-4);
+      gap: var(--ddd-spacing-8);
+      
       }
       .logo {
         height: 100px;
