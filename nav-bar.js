@@ -4,7 +4,6 @@
  */
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
-import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 import "./nav-bar.js";
 
 /**
@@ -13,7 +12,7 @@ import "./nav-bar.js";
  * @demo index.html
  * @element nav-bar
  */
-export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
+export class NavBar extends DDDSuper(LitElement) {
 
   static get tag() {
     return "nav-bar";
@@ -30,12 +29,6 @@ export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
       aboutLink: "/about",
       contactLink: "/contact"
     };
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/nav-bar.ar.json", import.meta.url).href +
-        "/../",
-    });
   }
 
   // Lit reactive properties
@@ -73,7 +66,7 @@ export class NavBar extends DDDSuper(I18NMixin(LitElement)) {
       justify-content: space-between;
       margin-top: var(--ddd-spacing-4);
       gap: var(--ddd-spacing-8);
-      
+
       }
       .logo {
         height: 100px;
