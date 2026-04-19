@@ -42,12 +42,6 @@ export class SlideArrow extends DDDSuper(I18NMixin(LitElement)) {
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
       }
-      .prev {
-        margin-left: -56px;
-      }
-      .next {
-        margin-right: -56px;
-      }
       .prev, .next {
         width: 40px;
         height: 40px;

@@ -7,15 +7,15 @@ import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
- * `insta-app`
+ * `jr-indicator`
  * 
  * @demo index.html
- * @element insta-app
+ * @element jr-indicator
  */
 export class SlideIndicator extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "slide-indicator";
+    return "jr-indicator";
   }
 
   constructor() {
@@ -239,7 +239,7 @@ export class SlideIndicator extends DDDSuper(I18NMixin(LitElement)) {
   _handleDotClick(e) {
     const index = parseInt(e.currentTarget.dataset.index);
 
-    const indexChange = new CustomEvent("play-list-index-changed", {
+    const indexChange = new CustomEvent("jr-indicator-index-changed", {
       composed: true,
       bubbles: true,
       detail: {
