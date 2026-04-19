@@ -6,15 +6,15 @@ import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 
 /**
- * `nav-bar`
+ * `jr-hero`
  * 
  * @demo index.html
- * @element nav-bar
+ * @element jr-hero
  */
 export class NavBar extends DDDSuper(LitElement) {
 
   static get tag() {
-    return "nav-bar";
+    return "jr-hero";
   }
 
   constructor() {
@@ -51,25 +51,19 @@ export class NavBar extends DDDSuper(LitElement) {
       .wrapper {
         margin: var(--ddd-spacing-2);
         padding: var(--ddd-spacing-4);
-      }
-      h3 span {
-        font-size: var(--project-2-label-font-size, var(--ddd-font-size-s));
-      }
-      .bar-items {
         display: flex;
         justify-content: center;
-        flex-grow: 1;
-        justify-content: space-between;
         align-items: center;
+        background-image: url('https://images.squarespace-cdn.com/content/v1/5bc1ef4629f2cc29fcf63eaa/1552470019493-DKKV7YRQU9YH6G4G2S6W/IMG_4914_0.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 500px;
       }
-      .nav-links {
-      display: flex;
-      justify-content: space-between;
-      margin-top: var(--ddd-spacing-4);
-      gap: var(--ddd-spacing-8);
+      h1 span {
+        font-size: var(--project-2-label-font-size, var(--ddd-font-size-s));
       }
-      .logo {
-        height: 100px;
+      h1 {
+        color: var(--ddd-theme-default-white);
       }
     `];
   }
@@ -78,14 +72,7 @@ export class NavBar extends DDDSuper(LitElement) {
   render() {
     return html`
 <div class="wrapper">
-  <div class="bar-items">
-    <img src="https://www.sportaccord.sport/iff-2023/wp-content/uploads/sites/2/2020/11/IJRU.png" alt="IJRU Logo" class="logo">
-    <div class="nav-links">
-        <a href=${this.t.homeLink}>Home</a>
-        <a href=${this.t.aboutLink}>About</a>
-        <a href=${this.t.contactLink}>Contact</a>
-    </div>
-  </div>
+  <h1>${this.title}</h1>
   <slot></slot>
 </div>`;
   }
