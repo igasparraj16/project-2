@@ -4,21 +4,17 @@
  */
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
-import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
-import "./jr-hero.js";
-import "./nav-bar.js";
-import "./jr-events-playlist.js";
 
 /**
- * `project-2`
+ * `jr-nav-bar`
  * 
  * @demo index.html
- * @element project-2
+ * @element jr-nav-bar
  */
-export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
+export class JrNavBar extends DDDSuper(LitElement) {
 
   static get tag() {
-    return "project-2";
+    return "jr-nav-bar";
   }
 
   constructor() {
@@ -28,13 +24,11 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
     this.t = {
       ...this.t,
       title: "Title",
+      homeLink: "/",
+      aboutLink: "/about",
+      teamsLink: "/teams",
+      contactLink: "/contact"
     };
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/project-2.ar.json", import.meta.url).href +
-        "/../",
-    });
   }
 
   // Lit reactive properties
@@ -62,6 +56,22 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
       h3 span {
         font-size: var(--project-2-label-font-size, var(--ddd-font-size-s));
       }
+      .bar-items {
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .nav-links {
+      display: flex;
+      justify-content: space-between;
+      margin-top: var(--ddd-spacing-4);
+      gap: var(--ddd-spacing-8);
+      }
+      .logo {
+        height: 100px;
+      }
     `];
   }
 
@@ -69,7 +79,15 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
 <div class="wrapper">
-  <h3><span>${this.t.title}:</span> ${this.title}</h3>
+  <div class="bar-items">
+    <img src="https://www.sportaccord.sport/iff-2023/wp-content/uploads/sites/2/2020/11/IJRU.png" alt="IJRU Logo" class="logo">
+    <div class="nav-links">
+        <a href=${this.t.homeLink}>Home</a>
+        <a href=${this.t.aboutLink}>About</a>
+        <a href=${this.t.teamsLink}>Teams</a>
+        <a href=${this.t.contactLink}>Contact</a>
+    </div>
+  </div>
   <slot></slot>
 </div>`;
   }
@@ -83,4 +101,4 @@ export class Project2 extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(Project2.tag, Project2);
+globalThis.customElements.define(JrNavBar.tag, JrNavBar);

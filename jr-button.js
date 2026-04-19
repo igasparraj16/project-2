@@ -6,27 +6,24 @@ import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 
 /**
- * `jr-hero`
+ * `jr-button`
  * 
  * @demo index.html
- * @element jr-hero
+ * @element jr-button
  */
-export class JrHero extends DDDSuper(LitElement) {
+export class JrButton extends DDDSuper(LitElement) {
 
   static get tag() {
-    return "jr-hero";
+    return "jr-button";
   }
 
   constructor() {
     super();
-    this.title = "";
+    this.buttonText = "button";
     this.t = this.t || {};
     this.t = {
       ...this.t,
-      title: "Title",
-      homeLink: "/",
-      aboutLink: "/about",
-      contactLink: "/contact"
+      "button-text": "button"
     };
   }
 
@@ -34,7 +31,7 @@ export class JrHero extends DDDSuper(LitElement) {
   static get properties() {
     return {
       ...super.properties,
-      title: { type: String },
+      buttonText: { type: String, attribute: "button-text" },
     };
   }
 
@@ -43,21 +40,18 @@ export class JrHero extends DDDSuper(LitElement) {
     return [super.styles,
     css`
       :host {
-        display: block;
+        display: inline-block;
         color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {
-        margin: var(--ddd-spacing-2);
-        padding: var(--ddd-spacing-4);
-        display: flex;
-        justify-content: center;
+        margin: var(--ddd-spacing-2) 0;
+        padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
+        display: inline-flex;
+        width: fit-content;
         align-items: center;
-        background-image: url('https://images.squarespace-cdn.com/content/v1/5bc1ef4629f2cc29fcf63eaa/1552470019493-DKKV7YRQU9YH6G4G2S6W/IMG_4914_0.jpg');
-        background-size: cover;
-        background-position: center;
-        height: 500px;
+        background-color: #5D576B;
+        border-radius: 9999px;
       }
       h1 span {
         font-size: var(--project-2-label-font-size, var(--ddd-font-size-s));
@@ -65,6 +59,13 @@ export class JrHero extends DDDSuper(LitElement) {
       h1 {
         color: var(--ddd-theme-default-white);
       }
+      h4 {
+        color: var(--ddd-theme-default-white);
+        font-size: var(--ddd-font-size-4xs);
+        margin: 0;
+        line-height: var(--ddd-lh-120);
+      }
+
     `];
   }
 
@@ -72,8 +73,8 @@ export class JrHero extends DDDSuper(LitElement) {
   render() {
     return html`
 <div class="wrapper">
-  <h1>${this.title}</h1>
-  <slot></slot>
+  <h4>${this.buttonText || this.t["button-text"]}</h4>
+    <slot></slot>
 </div>`;
   }
 
@@ -86,4 +87,4 @@ export class JrHero extends DDDSuper(LitElement) {
   }
 }
 
-globalThis.customElements.define(JrHero.tag, JrHero);
+globalThis.customElements.define(JrButton.tag, JrButton);

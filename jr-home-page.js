@@ -4,17 +4,23 @@
  */
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
+import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
+import "./jr-hero.js";
+import "./jr-nav-bar.js";
+import "./jr-events-playlist.js";
+import "./jr-footer.js";
+import "./jr-button.js";
 
 /**
- * `nav-bar`
+ * `jr-home-page`
  * 
  * @demo index.html
- * @element nav-bar
+ * @element jr-home-page
  */
-export class NavBar extends DDDSuper(LitElement) {
+export class JrHomePage extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "nav-bar";
+    return "jr-home-page";
   }
 
   constructor() {
@@ -24,10 +30,13 @@ export class NavBar extends DDDSuper(LitElement) {
     this.t = {
       ...this.t,
       title: "Title",
-      homeLink: "/",
-      aboutLink: "/about",
-      contactLink: "/contact"
     };
+    this.registerLocalization({
+      context: this,
+      localesPath:
+        new URL("./locales/project-2.ar.json", import.meta.url).href +
+        "/../",
+    });
   }
 
   // Lit reactive properties
@@ -48,28 +57,8 @@ export class NavBar extends DDDSuper(LitElement) {
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
       }
-      .wrapper {
-        margin: var(--ddd-spacing-2);
-        padding: var(--ddd-spacing-4);
-      }
       h3 span {
         font-size: var(--project-2-label-font-size, var(--ddd-font-size-s));
-      }
-      .bar-items {
-        display: flex;
-        justify-content: center;
-        flex-grow: 1;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .nav-links {
-      display: flex;
-      justify-content: space-between;
-      margin-top: var(--ddd-spacing-4);
-      gap: var(--ddd-spacing-8);
-      }
-      .logo {
-        height: 100px;
       }
     `];
   }
@@ -78,14 +67,10 @@ export class NavBar extends DDDSuper(LitElement) {
   render() {
     return html`
 <div class="wrapper">
-  <div class="bar-items">
-    <img src="https://www.sportaccord.sport/iff-2023/wp-content/uploads/sites/2/2020/11/IJRU.png" alt="IJRU Logo" class="logo">
-    <div class="nav-links">
-        <a href=${this.t.homeLink}>Home</a>
-        <a href=${this.t.aboutLink}>About</a>
-        <a href=${this.t.contactLink}>Contact</a>
-    </div>
-  </div>
+    <jr-nav-bar></jr-nav-bar>
+    <jr-hero title="International Jump Rope Union"></jr-hero>
+    <jr-events-playlist></jr-events-playlist>
+    <jr-footer></jr-footer>
   <slot></slot>
 </div>`;
   }
@@ -99,4 +84,4 @@ export class NavBar extends DDDSuper(LitElement) {
   }
 }
 
-globalThis.customElements.define(NavBar.tag, NavBar);
+globalThis.customElements.define(JrHomePage.tag, JrHomePage);

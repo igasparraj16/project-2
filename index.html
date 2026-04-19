@@ -13,14 +13,6 @@
       padding: var(--ddd-spacing-0);
       background-color: #FFFAE2;
     }
-    #demo {
-      margin: var(--ddd-spacing-2);
-    }
-    project-2 {
-      margin: var(--ddd-spacing-2);
-      border: var(--ddd-border-md);
-      border-radius: var(--ddd-radius-lg);
-    }
     project-2:hover {
       box-shadow: var(--ddd-boxShadow-sm);
     }
@@ -35,12 +27,51 @@
 
 <body>
   <div id="demo">
-    <nav-bar></nav-bar>
-    <jr-hero title="International Jump Rope Union"></jr-hero>
-    <jr-events-playlist> </jr-events-playlist>
-    <!-- this is going to do whatever the tag's defaults are -->
   </div>
-  <script type="module" src="./project-2.js"></script>
+  <script type="module">
+    import "./jr-home-page.js";
+    import "./jr-teams-page.js";
+
+    const routes = {
+      "/": "jr-home-page",
+      "/teams": "jr-teams-page",
+    };
+
+    const demo = document.getElementById("demo");
+
+    const normalizePath = (path) => {
+      const cleaned = path.replace(/\/+$/, "") || "/";
+      return cleaned;
+    };
+
+    const renderRoute = () => {
+      const path = normalizePath(window.location.pathname);
+      const tag = routes[path] || routes["/"];
+      demo.innerHTML = `<${tag}></${tag}>`;
+    };
+
+    document.addEventListener("click", (event) => {
+      const link = event.composedPath().find((node) => node?.tagName === "A");
+      if (!link) {
+        return;
+      }
+
+      const href = link.getAttribute("href");
+      if (!(href in routes)) {
+        return;
+      }
+
+      event.preventDefault();
+      const currentPath = normalizePath(window.location.pathname);
+      if (currentPath !== href) {
+        window.history.pushState({}, "", href);
+      }
+      renderRoute();
+    });
+
+    window.addEventListener("popstate", renderRoute);
+    renderRoute();
+  </script>
 
   <!-- Take HAX, the Web and you further down the rabbit hole -->
   <style>

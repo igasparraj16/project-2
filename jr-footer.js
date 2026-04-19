@@ -6,15 +6,15 @@ import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 
 /**
- * `jr-hero`
+ * `jr-footer`
  * 
  * @demo index.html
- * @element jr-hero
+ * @element jr-footer
  */
-export class JrHero extends DDDSuper(LitElement) {
+export class JrFooter extends DDDSuper(LitElement) {
 
   static get tag() {
-    return "jr-hero";
+    return "jr-footer";
   }
 
   constructor() {
@@ -52,18 +52,22 @@ export class JrHero extends DDDSuper(LitElement) {
         margin: var(--ddd-spacing-2);
         padding: var(--ddd-spacing-4);
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
-        background-image: url('https://images.squarespace-cdn.com/content/v1/5bc1ef4629f2cc29fcf63eaa/1552470019493-DKKV7YRQU9YH6G4G2S6W/IMG_4914_0.jpg');
-        background-size: cover;
-        background-position: center;
-        height: 500px;
+        background-color: #9BC1BC;
+        height: 100px;
       }
       h1 span {
         font-size: var(--project-2-label-font-size, var(--ddd-font-size-s));
       }
       h1 {
         color: var(--ddd-theme-default-white);
+      }
+      h4 {
+        color: #203230;
+        font-weight: normal;
+        text-align: left;
+        width: 100%;
       }
     `];
   }
@@ -72,8 +76,8 @@ export class JrHero extends DDDSuper(LitElement) {
   render() {
     return html`
 <div class="wrapper">
-  <h1>${this.title}</h1>
   <slot></slot>
+  <h4>Izzy Gasparraj, 2026</h4>
 </div>`;
   }
 
@@ -86,4 +90,4 @@ export class JrHero extends DDDSuper(LitElement) {
   }
 }
 
-globalThis.customElements.define(JrHero.tag, JrHero);
+globalThis.customElements.define(JrFooter.tag, JrFooter);
