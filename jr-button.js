@@ -41,7 +41,7 @@ export class JrButton extends DDDSuper(LitElement) {
     css`
       :host {
         display: inline-block;
-        color: var(--ddd-theme-primary);
+        color: var(--jr-text-color, var(--ddd-theme-primary));
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {
@@ -50,7 +50,7 @@ export class JrButton extends DDDSuper(LitElement) {
         display: inline-flex;
         width: fit-content;
         align-items: center;
-        background-color: #5D576B;
+        background-color: var(--jr-pill-color, #5D576B);
         border-radius: 9999px;
       }
       h1 span {
@@ -60,7 +60,7 @@ export class JrButton extends DDDSuper(LitElement) {
         color: var(--ddd-theme-default-white);
       }
       h4 {
-        color: var(--ddd-theme-default-white);
+        color: var(--jr-pill-text-color, var(--ddd-theme-default-white));
         font-size: var(--ddd-font-size-4xs);
         margin: 0;
         line-height: var(--ddd-lh-120);

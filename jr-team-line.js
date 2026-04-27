@@ -74,14 +74,14 @@ export class JrTeamLine extends DDDSuper(LitElement) {
         text-decoration: none;
       }
       .team-name {
-        color: var(--ddd-theme-default-coalyGray);
+        color: var(--jr-text-color, var(--ddd-theme-default-coalyGray));
         font-size: var(--ddd-font-size-s);
         font-weight: var(--ddd-font-weight-bold);
         line-height: var(--ddd-lh-120);
         margin: 0;
       }
       .team-description {
-        color: var(--ddd-theme-default-coalyGray);
+        color: var(--jr-text-color, var(--ddd-theme-default-coalyGray));
         font-size: var(--ddd-font-size-3xs);
         margin: 0;
         line-height: var(--ddd-lh-120);

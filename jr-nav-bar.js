@@ -45,8 +45,8 @@ export class JrNavBar extends DDDSuper(LitElement) {
     css`
       :host {
         display: block;
-        color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
+        color: var(--jr-text-color, var(--ddd-theme-primary));
+        background-color: var(--jr-surface-color, var(--ddd-theme-accent));
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {
@@ -79,8 +79,8 @@ export class JrNavBar extends DDDSuper(LitElement) {
         justify-content: center;
         padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
         border-radius: 9999px;
-        background-color: #5D576B;
-        color: var(--ddd-theme-default-white);
+        background-color: var(--jr-pill-color, #5D576B);
+        color: var(--jr-nav-text-color, var(--jr-pill-text-color, var(--ddd-theme-default-white)));
         text-decoration: none;
         font-weight: var(--ddd-font-weight-bold);
         line-height: 1;
@@ -88,7 +88,7 @@ export class JrNavBar extends DDDSuper(LitElement) {
       }
       .nav-links a:hover,
       .nav-links a:focus-visible {
-        background-color: #443f51;
+        background-color: var(--jr-pill-hover-color, #443f51);
         transform: translateY(-1px);
         outline: none;
       }
@@ -100,7 +100,7 @@ export class JrNavBar extends DDDSuper(LitElement) {
         width: min(260px, calc(100vw - var(--ddd-spacing-8)));
         padding: var(--ddd-spacing-2);
         border-radius: var(--ddd-radius-lg);
-        background-color: var(--ddd-theme-default-white);
+        background-color: var(--jr-dropdown-surface-color, var(--ddd-theme-default-white));
         box-shadow: var(--ddd-boxShadow-md);
         display: none;
         z-index: 5;
@@ -114,14 +114,14 @@ export class JrNavBar extends DDDSuper(LitElement) {
       .dropdown a {
         width: 100%;
         justify-content: flex-start;
-        background-color: #F3F0E8;
-        color: var(--ddd-theme-default-coalyGray);
+        background-color: var(--jr-dropdown-item-surface-color, #F3F0E8);
+        color: var(--jr-text-color, var(--ddd-theme-default-coalyGray));
         white-space: normal;
         box-sizing: border-box;
       }
       .dropdown a:hover,
       .dropdown a:focus-visible {
-        background-color: #D8D2C5;
+        background-color: var(--jr-dropdown-item-hover-surface-color, #D8D2C5);
       }
       .logo {
         height: 100px;

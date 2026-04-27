@@ -52,15 +52,15 @@ export class JrAboutPage extends DDDSuper(I18NMixin(LitElement)) {
     css`
       :host {
         display: block;
-        color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
+        color: var(--jr-text-color, var(--ddd-theme-primary));
+        background-color: var(--jr-surface-color, var(--ddd-theme-accent));
         font-family: var(--ddd-font-navigation);
       }
       h3 span {
         font-size: var(--project-2-label-font-size, var(--ddd-font-size-s));
       }
       h1 {
-        color: var(--ddd-theme-default-coalyGray);
+        color: var(--jr-text-color, var(--ddd-theme-default-coalyGray));
       }
       .content {
         padding: var(--ddd-spacing-4) var(--ddd-spacing-4) var(--ddd-spacing-8);
@@ -72,14 +72,14 @@ export class JrAboutPage extends DDDSuper(I18NMixin(LitElement)) {
       }
       .content p {
         margin: 0;
-        color: var(--ddd-theme-default-coalyGray);
+        color: var(--jr-text-color, var(--ddd-theme-default-coalyGray));
         line-height: var(--ddd-lh-140);
         font-size: var(--ddd-font-size-s);
       }
       .highlight {
         padding: var(--ddd-spacing-4);
         border-radius: var(--ddd-radius-lg);
-        background-color: #F3F0E8;
+        background-color: var(--jr-card-surface-color, #F3F0E8);
         border-left: 6px solid #5D576B;
       }
     `];

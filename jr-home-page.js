@@ -53,8 +53,8 @@ export class JrHomePage extends DDDSuper(I18NMixin(LitElement)) {
     css`
       :host {
         display: block;
-        color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
+        color: var(--jr-text-color, var(--ddd-theme-primary));
+        background-color: var(--jr-surface-color, var(--ddd-theme-accent));
         font-family: var(--ddd-font-navigation);
       }
       h3 span {

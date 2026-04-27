@@ -47,8 +47,8 @@ export class JrTeamPageBase extends DDDSuper(I18NMixin(LitElement)) {
     css`
       :host {
         display: block;
-        color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
+        color: var(--jr-text-color, var(--ddd-theme-primary));
+        background-color: var(--jr-surface-color, var(--ddd-theme-accent));
         font-family: var(--ddd-font-navigation);
       }
       .content {
@@ -60,7 +60,7 @@ export class JrTeamPageBase extends DDDSuper(I18NMixin(LitElement)) {
       }
       h1 {
         margin: 0;
-        color: var(--ddd-theme-default-coalyGray);
+        color: var(--jr-text-color, var(--ddd-theme-default-coalyGray));
         text-align: center;
       }
       .hero {
@@ -78,7 +78,7 @@ export class JrTeamPageBase extends DDDSuper(I18NMixin(LitElement)) {
       }
       .description {
         margin: 0;
-        color: var(--ddd-theme-default-coalyGray);
+        color: var(--jr-text-color, var(--ddd-theme-default-coalyGray));
         line-height: var(--ddd-lh-140);
         text-align: left;
       }

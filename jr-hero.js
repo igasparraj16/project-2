@@ -4,6 +4,7 @@
  */
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
+import "./jr-button.js";
 
 /**
  * `jr-hero`
@@ -49,6 +50,7 @@ export class JrHero extends DDDSuper(LitElement) {
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {
+        position: relative;
         margin: var(--ddd-spacing-2);
         padding: var(--ddd-spacing-4);
         display: flex;
@@ -58,12 +60,43 @@ export class JrHero extends DDDSuper(LitElement) {
         background-size: cover;
         background-position: center;
         height: 500px;
+        overflow: hidden;
+      }
+      .wrapper::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--jr-surface-color, var(--ddd-theme-default-black));
+        opacity: 0.42;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--ddd-spacing-3);
+        text-align: center;
+        max-width: 44rem;
       }
       h1 span {
         font-size: var(--project-2-label-font-size, var(--ddd-font-size-s));
       }
       h1 {
-        color: var(--ddd-theme-default-white);
+        color: light-dark(var(--ddd-theme-default-coalyGray), var(--ddd-theme-default-white));
+        font-size: clamp(2.1rem, 4.6vw, 4.25rem);
+        line-height: 1.05;
+        margin: 0;
+      }
+      .subtitle {
+        margin: 0;
+        color: light-dark(var(--ddd-theme-default-coalyGray), #8FD1FF);
+        font-size: clamp(0.72rem, 1.35vw, 0.95rem);
+        font-weight: var(--ddd-font-weight-bold);
+        letter-spacing: 0.12em;
+      }
+      .about-link {
+        text-decoration: none;
       }
     `];
   }
@@ -72,7 +105,13 @@ export class JrHero extends DDDSuper(LitElement) {
   render() {
     return html`
 <div class="wrapper">
-  <h1>${this.title}</h1>
+  <div class="hero-content">
+    <p class="subtitle">THE PREMIERE JUMP ROPE LEAGUE, RIGHT IN YOUR BACKYARD</p>
+    <h1>${this.title}</h1>
+    <a class="about-link" href="/about">
+      <jr-button button-text="About"></jr-button>
+    </a>
+  </div>
   <slot></slot>
 </div>`;
   }

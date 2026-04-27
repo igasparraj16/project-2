@@ -44,8 +44,8 @@ export class JrFooter extends DDDSuper(LitElement) {
     css`
       :host {
         display: block;
-        color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
+        color: var(--jr-text-color, var(--ddd-theme-primary));
+        background-color: var(--jr-surface-color, var(--ddd-theme-accent));
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {
@@ -54,7 +54,7 @@ export class JrFooter extends DDDSuper(LitElement) {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        background-color: #9BC1BC;
+        background-color: var(--jr-footer-surface-color, #9BC1BC);
         height: 100px;
       }
       h1 span {
@@ -64,7 +64,7 @@ export class JrFooter extends DDDSuper(LitElement) {
         color: var(--ddd-theme-default-white);
       }
       h4 {
-        color: #203230;
+        color: var(--jr-footer-text-color, #203230);
         font-weight: normal;
         text-align: left;
         width: 100%;
