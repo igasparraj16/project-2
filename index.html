@@ -33,12 +33,14 @@
     import "./jr-teams-page.js";
     import "./jr-about-page.js";
     import "./jr-contact-page.js";
+    import "./jr-comet-skippers-page.js";
+    import "./jr-indy-air-bears-page.js";
+    import "./jr-bouncin-bulldogs-page.js";
+    import "./jr-rope-runners-page.js";
+    import "./jr-jammin-jump-crew-page.js";
 
-    const routes = {
+    let routes = {
       "/": "jr-home-page",
-      "/about": "jr-about-page",
-      "/teams": "jr-teams-page",
-      "/contact": "jr-contact-page",
     };
 
     const demo = document.getElementById("demo");
@@ -46,6 +48,38 @@
     const normalizePath = (path) => {
       const cleaned = path.replace(/\/+$/, "") || "/";
       return cleaned;
+    };
+
+    const sortByOutlineOrder = (a, b) => Number(a.order || 0) - Number(b.order || 0);
+
+    const loadRoutesFromOutline = async () => {
+      try {
+        const response = await fetch(new URL("./data.json", import.meta.url));
+        if (!response.ok) {
+          return;
+        }
+
+        const data = await response.json();
+        if (!Array.isArray(data?.items)) {
+          return;
+        }
+
+        const pageItems = data.items
+          .filter((item) => item?.metadata?.tag && item?.metadata?.route)
+          .sort(sortByOutlineOrder);
+
+        if (!pageItems.length) {
+          return;
+        }
+
+        routes = pageItems.reduce((acc, item) => {
+          acc[item.metadata.route] = item.metadata.tag;
+          return acc;
+        }, {});
+      }
+      catch (e) {
+        // Keep fallback route map if outline cannot be loaded.
+      }
     };
 
     const renderRoute = () => {
@@ -67,14 +101,17 @@
 
       event.preventDefault();
       const currentPath = normalizePath(window.location.pathname);
-      if (currentPath !== href) {
-        window.history.pushState({}, "", href);
+      const targetPath = normalizePath(href);
+      if (currentPath !== targetPath) {
+        window.history.pushState({}, "", targetPath);
       }
       renderRoute();
     });
 
     window.addEventListener("popstate", renderRoute);
-    renderRoute();
+    loadRoutesFromOutline().finally(() => {
+      renderRoute();
+    });
   </script>
 
   <!-- Take HAX, the Web and you further down the rabbit hole -->

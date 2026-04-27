@@ -27,6 +27,9 @@ export class PlayList extends DDDSuper(I18NMixin(LitElement)) {
     this.eventTitle = "";
     this.backgroundPhoto = "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4";
     this.slides = [];
+    this.visibleCount = 3;
+    this._mobileMediaQuery = null;
+    this._boundMediaListener = null;
   }
 
   // Lit reactive properties
@@ -39,6 +42,7 @@ export class PlayList extends DDDSuper(I18NMixin(LitElement)) {
       backgroundPhoto: { type: String },
       slides: { type: Array },
       index: { type: Number },
+      visibleCount: { type: Number },
     };
   }
 
@@ -59,9 +63,19 @@ export class PlayList extends DDDSuper(I18NMixin(LitElement)) {
         padding: var(--ddd-spacing-4);
       }
       .slides-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: var(--ddd-spacing-4);
+        --slide-gap: var(--ddd-spacing-4);
+        --visible-count: 3;
+        --offset: 0;
+        overflow: hidden;
+      }
+      .slides-track {
+        display: flex;
+        gap: var(--slide-gap);
+        transform: translateX(calc(-1 * var(--offset) * ((100% + var(--slide-gap)) / var(--visible-count))));
+        transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .slides-track > .event-card {
+        flex: 0 0 calc((100% - ((var(--visible-count) - 1) * var(--slide-gap))) / var(--visible-count));
       }
       .event-card {
         position: relative;
@@ -136,8 +150,8 @@ export class PlayList extends DDDSuper(I18NMixin(LitElement)) {
           padding: var(--ddd-spacing-0);
         }
         .slides-grid {
-          grid-template-columns: 1fr;
-          gap: var(--ddd-spacing-3);
+          --visible-count: 1;
+          --slide-gap: var(--ddd-spacing-3);
         }
         .event-card,
         .content {
@@ -153,20 +167,25 @@ export class PlayList extends DDDSuper(I18NMixin(LitElement)) {
         position: relative;
         flex: 0 0 auto;
       }
+      @media (prefers-reduced-motion: reduce) {
+        .slides-track {
+          transition: none;
+        }
+      }
     `];
   }
 
   // Lit render the HTML
   render() {
-    const visibleSlides = this._getVisibleSlides();
-    const maxStartIndex = Math.max(0, this.slides.length - 3);
+    const maxStartIndex = this._getMaxStartIndex();
     const arrowTotal = maxStartIndex + 1;
     const pageSlides = this.slides.slice(0, arrowTotal);
 
     return html`
       <div class="wrapper">
         <div class="slides-grid">
-          ${visibleSlides.map((slide) => html`
+          <div class="slides-track" style="--offset: ${this.currIndex}; --visible-count: ${this.visibleCount};">
+          ${this.slides.map((slide) => html`
             <article class="event-card" style="background-image: url('${slide.backgroundPhoto || "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4"}')">
               <div class="overlay"></div>
               <div class="content">
@@ -177,6 +196,7 @@ export class PlayList extends DDDSuper(I18NMixin(LitElement)) {
               </div>
             </article>
           `)}
+          </div>
         </div>
         <div class="controls">
           <jr-indicator
@@ -196,7 +216,7 @@ export class PlayList extends DDDSuper(I18NMixin(LitElement)) {
             </jr-arrow>
           </div>
         </div>
-        ${!visibleSlides.length ? html`
+        ${!this.slides.length ? html`
           <div class="slides-grid">
             <article class="event-card" style="background-image: url('https://images.unsplash.com/photo-1501281668745-f7f57925c3b4')">
               <div class="overlay"></div>
@@ -226,8 +246,16 @@ export class PlayList extends DDDSuper(I18NMixin(LitElement)) {
     }
 
     await this._loadSlidesFromJson();
+    this._setupResponsiveVisibleCount();
 
     this._updateSlides();
+  }
+
+  disconnectedCallback() {
+    if (this._mobileMediaQuery && this._boundMediaListener) {
+      this._mobileMediaQuery.removeEventListener("change", this._boundMediaListener);
+    }
+    super.disconnectedCallback();
   }
 
   updated(changedProperties) {
@@ -282,7 +310,7 @@ export class PlayList extends DDDSuper(I18NMixin(LitElement)) {
       return;
     }
 
-    const maxStartIndex = Math.max(0, this.slides.length - 3);
+    const maxStartIndex = this._getMaxStartIndex();
     if (this.currIndex < 0) {
       this.currIndex = 0;
     }
@@ -306,7 +334,9 @@ export class PlayList extends DDDSuper(I18NMixin(LitElement)) {
       }
 
       const data = await response.json();
-      const eventItems = Array.isArray(data?.images) ? data.images : data?.events;
+      const eventItems = Array.isArray(data?.images)
+        ? data.images
+        : (Array.isArray(data?.events) ? data.events : data?.metadata?.events);
       if (!Array.isArray(eventItems) || eventItems.length === 0) {
         return;
       }
@@ -323,7 +353,7 @@ export class PlayList extends DDDSuper(I18NMixin(LitElement)) {
   }
 
   next() {
-    const maxStartIndex = Math.max(0, this.slides.length - 3);
+    const maxStartIndex = this._getMaxStartIndex();
     if (this.currIndex < maxStartIndex) {
       this.currIndex++;
     }
@@ -337,19 +367,27 @@ export class PlayList extends DDDSuper(I18NMixin(LitElement)) {
 
   _handleIndexChange(e) {
     const newIndex = e.detail.index;
+    const maxStartIndex = this._getMaxStartIndex();
     
-    if (newIndex >= 0 && newIndex < this.slides.length) {
+    if (newIndex >= 0 && newIndex <= maxStartIndex) {
       this.currIndex = newIndex;
     }
   }
 
-  _getVisibleSlides() {
-    if (!Array.isArray(this.slides) || this.slides.length === 0) {
-      return [];
-    }
+  _setupResponsiveVisibleCount() {
+    this._mobileMediaQuery = globalThis.matchMedia("(max-width: 767px)");
+    this._boundMediaListener = () => {
+      this.visibleCount = this._mobileMediaQuery.matches ? 1 : 3;
+      this._updateSlides();
+    };
 
-    const start = Math.max(0, this.currIndex);
-    return this.slides.slice(start, start + 3);
+    this._boundMediaListener();
+    this._mobileMediaQuery.addEventListener("change", this._boundMediaListener);
+  }
+
+  _getMaxStartIndex() {
+    const visible = Math.max(1, Number(this.visibleCount) || 3);
+    return Math.max(0, this.slides.length - visible);
   }
 }
 

@@ -23,6 +23,7 @@ export class JrTeamLine extends DDDSuper(LitElement) {
     this.image = "https://images.unsplash.com/photo-1521412644187-c49fa049e84d";
     this.teamName = "Team Name";
     this.teamDescription = "Team description goes here.";
+    this.teamHref = "/teams";
   }
 
   // Lit reactive properties
@@ -32,6 +33,7 @@ export class JrTeamLine extends DDDSuper(LitElement) {
       image: { type: String },
       teamName: { type: String, attribute: "team-name" },
       teamDescription: { type: String, attribute: "team-description" },
+      teamHref: { type: String, attribute: "team-href" },
     };
   }
 
@@ -48,6 +50,7 @@ export class JrTeamLine extends DDDSuper(LitElement) {
         padding: var(--ddd-spacing-4);
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: var(--ddd-spacing-4);
         border-radius: var(--ddd-radius-lg);
       }
@@ -64,6 +67,11 @@ export class JrTeamLine extends DDDSuper(LitElement) {
         align-items: flex-start;
         gap: var(--ddd-spacing-2);
         min-width: 0;
+        text-align: left;
+      }
+      a {
+        align-self: flex-start;
+        text-decoration: none;
       }
       .team-name {
         color: var(--ddd-theme-default-coalyGray);
@@ -99,7 +107,9 @@ export class JrTeamLine extends DDDSuper(LitElement) {
   <div class="content">
     <h3 class="team-name">${this.teamName}</h3>
     <p class="team-description">${this.teamDescription}</p>
-    <jr-button button-text="View Team"></jr-button>
+    <a href="${this.teamHref}">
+      <jr-button button-text="View Team"></jr-button>
+    </a>
   </div>
 </div>`;
   }

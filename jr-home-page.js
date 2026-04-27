@@ -68,7 +68,7 @@ export class JrHomePage extends DDDSuper(I18NMixin(LitElement)) {
     return html`
 <div class="wrapper">
     <jr-nav-bar></jr-nav-bar>
-    <jr-hero title="International Jump Rope Union"></jr-hero>
+    <jr-hero title="Elite Jump Rope League"></jr-hero>
     <jr-events-playlist></jr-events-playlist>
     <jr-footer></jr-footer>
   <slot></slot>

@@ -59,8 +59,57 @@ export class JrContactPage extends DDDSuper(I18NMixin(LitElement)) {
       h3 span {
         font-size: var(--project-2-label-font-size, var(--ddd-font-size-s));
       }
+      h1 {
+        color: var(--ddd-theme-default-coalyGray);
+      }
       .content {
+        padding: var(--ddd-spacing-4) var(--ddd-spacing-4) var(--ddd-spacing-8);
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: var(--ddd-spacing-4);
+      }
+      .content p {
+        margin: 0;
+        color: var(--ddd-theme-default-coalyGray);
+        line-height: var(--ddd-lh-140);
+        font-size: var(--ddd-font-size-s);
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: var(--ddd-spacing-4);
+      }
+      .card {
         padding: var(--ddd-spacing-4);
+        border-radius: var(--ddd-radius-lg);
+        background-color: #F3F0E8;
+        border: 1px solid rgba(93, 87, 107, 0.15);
+      }
+      .card h2 {
+        margin: 0 0 var(--ddd-spacing-2);
+        color: var(--ddd-theme-default-coalyGray);
+        font-size: var(--ddd-font-size-m);
+      }
+      .card p,
+      .card a {
+        font-size: var(--ddd-font-size-s);
+      }
+      .card a {
+        color: var(--ddd-theme-default-coalyGray);
+        text-decoration: none;
+        font-weight: var(--ddd-font-weight-bold);
+      }
+      .card a:hover,
+      .card a:focus-visible {
+        text-decoration: underline;
+      }
+      .note {
+        padding: var(--ddd-spacing-4);
+        border-left: 6px solid #5D576B;
+        border-radius: var(--ddd-radius-lg);
+        background-color: #FFF8EC;
       }
     `];
   }
@@ -72,6 +121,35 @@ export class JrContactPage extends DDDSuper(I18NMixin(LitElement)) {
     <jr-nav-bar></jr-nav-bar>
     <div class="content">
       <h1>Contact</h1>
+      <p>
+        Have a question about the Elite Jump Rope League, an upcoming event, or
+        one of the teams? Use the contact details below to reach the right
+        group and we’ll point you in the right direction.
+      </p>
+      <div class="contact-grid">
+        <div class="card">
+          <h2>General Inquiries</h2>
+          <p>Email: <a href="mailto:info@ijru.org">info@ijru.org</a></p>
+          <p>For league information, event questions, and public updates.</p>
+        </div>
+        <div class="card">
+          <h2>Team Questions</h2>
+          <p>Email: <a href="mailto:teams@ijru.org">teams@ijru.org</a></p>
+          <p>For team schedules, rosters, and competition coordination.</p>
+        </div>
+        <div class="card">
+          <h2>Media and Partnerships</h2>
+          <p>Email: <a href="mailto:media@ijru.org">media@ijru.org</a></p>
+          <p>For press, sponsorships, and collaboration opportunities.</p>
+        </div>
+      </div>
+      <div class="note">
+        <p>
+          IJRU is an independent, non-political sports organization based in
+          Ohio. Please include your name, topic, and the event or team you’re
+          asking about so your message can be routed quickly.
+        </p>
+      </div>
     </div>
     <jr-footer></jr-footer>
   <slot></slot>

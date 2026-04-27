@@ -1,44 +1,197 @@
 {
-  "events": [
+  "id": "jr-elite-jump-rope-outline-2026",
+  "title": "Elite Jump Rope League",
+  "author": "igasparraj16",
+  "description": "Website outline and event data for the Elite Jump Rope League pages.",
+  "license": "by-sa",
+  "metadata": {
+    "events": [
+      {
+        "date": "03-11-2026",
+        "eventTitle": "Ohio Open",
+        "backgroundPhoto": "https://npr.brightspotcdn.com/dims4/default/a2b4409/2147483647/strip/true/crop/1920x1008+0+0/resize/1200x630!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fab%2F0d%2F1d85445a44beb1bd1244869dc8b1%2Fimage.png"
+      },
+      {
+        "date": "04-23-2026",
+        "eventTitle": "Double Dutch Classic",
+        "backgroundPhoto": "https://cdn.prod.website-files.com/66149f879619e045e04cf32a/664e272b1f4179b085efadb4_663b47196d1038cc4215f5b6_662b27a2193c08faca165f32_662b279b19ec052826ffa944_DoubleDutch_Web-1280x720.png"
+      },
+      {
+        "date": "06-04-2026",
+        "eventTitle": "Jump Rope National Qualifiers",
+        "backgroundPhoto": "https://blog.playeasy.com/wp-content/uploads/2022/06/AMJRF-Single-Rope.png"
+      },
+      {
+        "date": "06-12-2026",
+        "eventTitle": "USA Nationals",
+        "backgroundPhoto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOZDypgwCRTuoeabUjWU9VUPgDcSLHMg9Few&s"
+      },
+      {
+        "date": "07-08-2026",
+        "eventTitle": "IJRU World Championships 2026",
+        "backgroundPhoto": "https://images.squarespace-cdn.com/content/v1/5bc1ef4629f2cc29fcf63eaa/1706583555897-6V2Q27FHF7X9AJPHO2YB/DSC_1892.jpg?format=2500w"
+      },
+      {
+        "date": "07-20-2026",
+        "eventTitle": "Arnold Classic 2026",
+        "backgroundPhoto": "https://www.greenqueen.com.hk/wp-content/uploads/2016/07/Arnold-Classic-Asia-Multi-Sport-Festival-Skiprope.jpg"
+      },
+      {
+        "date": "09-11-2026",
+        "eventTitle": "Ohio Speed Challenger",
+        "backgroundPhoto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTROm_eYb6OE4AVrlFMjkKVq1E1gK-6VRoPLg&s"
+      },
+      {
+        "date": "10-03-2026",
+        "eventTitle": "Jump with the Stars",
+        "backgroundPhoto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-Z3_mfuYa5ySSDFEj5mycP1-gZ7tt10imvg&s"
+      }
+    ]
+  },
+  "items": [
     {
-      "date": "03-11-2026",
-      "eventTitle": "Ohio Open",
-      "backgroundPhoto": "https://npr.brightspotcdn.com/dims4/default/a2b4409/2147483647/strip/true/crop/1920x1008+0+0/resize/1200x630!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fab%2F0d%2F1d85445a44beb1bd1244869dc8b1%2Fimage.png"
+      "id": "page-home",
+      "indent": "1",
+      "location": "index.html",
+      "slug": "home",
+      "order": "0",
+      "parent": null,
+      "title": "Home",
+      "description": "Landing page with hero and event playlist.",
+      "metadata": {
+        "icon": "icons:home",
+        "tag": "jr-home-page",
+        "route": "/",
+        "nav": true
+      }
     },
     {
-      "date": "04-23-2026",
-      "eventTitle": "Double Dutch Classic",
-      "backgroundPhoto": "https://cdn.prod.website-files.com/66149f879619e045e04cf32a/664e272b1f4179b085efadb4_663b47196d1038cc4215f5b6_662b27a2193c08faca165f32_662b279b19ec052826ffa944_DoubleDutch_Web-1280x720.png"
+      "id": "page-about",
+      "indent": "1",
+      "location": "about.html",
+      "slug": "about",
+      "order": "1",
+      "parent": null,
+      "title": "About",
+      "description": "Overview of the Elite Jump Rope League.",
+      "metadata": {
+        "icon": "icons:info",
+        "tag": "jr-about-page",
+        "route": "/about",
+        "nav": true
+      }
     },
     {
-      "date": "06-04-2026",
-      "eventTitle": "Jump Rope National Qualifiers",
-      "backgroundPhoto": "https://blog.playeasy.com/wp-content/uploads/2022/06/AMJRF-Single-Rope.png"
+      "id": "page-teams",
+      "indent": "1",
+      "location": "teams.html",
+      "slug": "teams",
+      "order": "2",
+      "parent": null,
+      "title": "Teams",
+      "description": "Meet participating jump rope teams.",
+      "metadata": {
+        "icon": "icons:group",
+        "tag": "jr-teams-page",
+        "route": "/teams",
+        "nav": true
+      }
     },
     {
-      "date": "06-12-2026",
-      "eventTitle": "USA Nationals",
-      "backgroundPhoto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOZDypgwCRTuoeabUjWU9VUPgDcSLHMg9Few&s"
+      "id": "page-contact",
+      "indent": "1",
+      "location": "contact.html",
+      "slug": "contact",
+      "order": "3",
+      "parent": null,
+      "title": "Contact",
+      "description": "Contact and inquiries page.",
+      "metadata": {
+        "icon": "icons:mail",
+        "tag": "jr-contact-page",
+        "route": "/contact",
+        "nav": true
+      }
     },
     {
-      "date": "07-08-2026",
-      "eventTitle": "IJRU World Championships 2026",
-      "backgroundPhoto": "https://images.squarespace-cdn.com/content/v1/5bc1ef4629f2cc29fcf63eaa/1706583555897-6V2Q27FHF7X9AJPHO2YB/DSC_1892.jpg?format=2500w"
+      "id": "team-comet-skippers",
+      "indent": "1",
+      "location": "teams/comet-skippers.html",
+      "slug": "comet-skippers",
+      "order": "2.1",
+      "parent": null,
+      "title": "Comet Skippers",
+      "description": "Dedicated page for the Comet Skippers team.",
+      "metadata": {
+        "icon": "icons:group",
+        "tag": "jr-comet-skippers-page",
+        "route": "/teams/comet-skippers",
+        "nav": false
+      }
     },
     {
-      "date": "07-20-2026",
-      "eventTitle": "Arnold Classic 2026",
-      "backgroundPhoto": "https://www.greenqueen.com.hk/wp-content/uploads/2016/07/Arnold-Classic-Asia-Multi-Sport-Festival-Skiprope.jpg"
+      "id": "team-indy-air-bears",
+      "indent": "1",
+      "location": "teams/indy-air-bears.html",
+      "slug": "indy-air-bears",
+      "order": "2.2",
+      "parent": null,
+      "title": "Indy Air Bears",
+      "description": "Dedicated page for the Indy Air Bears team.",
+      "metadata": {
+        "icon": "icons:group",
+        "tag": "jr-indy-air-bears-page",
+        "route": "/teams/indy-air-bears",
+        "nav": false
+      }
     },
     {
-      "date": "09-11-2026",
-      "eventTitle": "Ohio Speed Challenger",
-      "backgroundPhoto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTROm_eYb6OE4AVrlFMjkKVq1E1gK-6VRoPLg&s"
+      "id": "team-bouncin-bulldogs",
+      "indent": "1",
+      "location": "teams/bouncin-bulldogs.html",
+      "slug": "bouncin-bulldogs",
+      "order": "2.3",
+      "parent": null,
+      "title": "Bouncin' Bulldogs",
+      "description": "Dedicated page for the Bouncin' Bulldogs team.",
+      "metadata": {
+        "icon": "icons:group",
+        "tag": "jr-bouncin-bulldogs-page",
+        "route": "/teams/bouncin-bulldogs",
+        "nav": false
+      }
     },
     {
-      "date": "10-03-2026",
-      "eventTitle": "Jump with the Stars",
-      "backgroundPhoto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-Z3_mfuYa5ySSDFEj5mycP1-gZ7tt10imvg&s"
+      "id": "team-rope-runners",
+      "indent": "1",
+      "location": "teams/rope-runners.html",
+      "slug": "rope-runners",
+      "order": "2.4",
+      "parent": null,
+      "title": "Rope Runners",
+      "description": "Dedicated page for the Rope Runners team.",
+      "metadata": {
+        "icon": "icons:group",
+        "tag": "jr-rope-runners-page",
+        "route": "/teams/rope-runners",
+        "nav": false
+      }
+    },
+    {
+      "id": "team-jammin-jump-crew",
+      "indent": "1",
+      "location": "teams/jammin-jump-crew.html",
+      "slug": "jammin-jump-crew",
+      "order": "2.5",
+      "parent": null,
+      "title": "Jammin' Jump Crew",
+      "description": "Dedicated page for the Jammin' Jump Crew team.",
+      "metadata": {
+        "icon": "icons:group",
+        "tag": "jr-jammin-jump-crew-page",
+        "route": "/teams/jammin-jump-crew",
+        "nav": false
+      }
     }
   ]
 }

@@ -59,8 +59,28 @@ export class JrAboutPage extends DDDSuper(I18NMixin(LitElement)) {
       h3 span {
         font-size: var(--project-2-label-font-size, var(--ddd-font-size-s));
       }
+      h1 {
+        color: var(--ddd-theme-default-coalyGray);
+      }
       .content {
+        padding: var(--ddd-spacing-4) var(--ddd-spacing-4) var(--ddd-spacing-8);
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: var(--ddd-spacing-4);
+      }
+      .content p {
+        margin: 0;
+        color: var(--ddd-theme-default-coalyGray);
+        line-height: var(--ddd-lh-140);
+        font-size: var(--ddd-font-size-s);
+      }
+      .highlight {
         padding: var(--ddd-spacing-4);
+        border-radius: var(--ddd-radius-lg);
+        background-color: #F3F0E8;
+        border-left: 6px solid #5D576B;
       }
     `];
   }
@@ -72,6 +92,33 @@ export class JrAboutPage extends DDDSuper(I18NMixin(LitElement)) {
     <jr-nav-bar></jr-nav-bar>
     <div class="content">
       <h1>About</h1>
+      <p>
+        Since 1973, competitive jump rope and skipping has grown from a niche
+        athletic activity into a global sport with strong technical, artistic,
+        and speed-based events. Over time, athletes, coaches, and organizers
+        helped shape the sport into a modern international competition with a
+        clear structure and a worldwide community.
+      </p>
+      <p>
+        Today that work continues through the International Jump Rope Union
+        (IJRU), the sole international governing body for jump rope. IJRU was
+        formed through the merger of Fédération Internationale de Saut à la
+        Corde - International Rope Skipping Federation (FISAC-IRSF) and the
+        World Jump Rope Federation (WJRF), bringing together decades of
+        championship history and international leadership.
+      </p>
+      <div class="highlight">
+        <p>
+          Together, those organizations have produced 21 world championships.
+          IJRU now holds Observer Status with the Global Association of
+          International Sports Federations (GAISF) and continues building a
+          path toward greater recognition in the Olympic movement.
+        </p>
+      </div>
+      <p>
+        IJRU is an independent, non-political sports governance organization
+        registered in Ohio and recognized as a 501(c)(3) nonprofit.
+      </p>
     </div>
     <jr-footer></jr-footer>
   <slot></slot>
