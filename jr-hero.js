@@ -101,7 +101,7 @@ export class JrHero extends DDDSuper(LitElement) {
       }
       @media (max-width: 767px) {
         h1 {
-          font-size: var(--ddd-font-size-2xl);
+          font-size: var(--ddd-font-size-3xl);
         }
 
         .subtitle {
