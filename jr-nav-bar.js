@@ -5,6 +5,7 @@
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 
+
 /**
  * `jr-nav-bar`
  * 
@@ -20,6 +21,7 @@ export class JrNavBar extends DDDSuper(LitElement) {
   constructor() {
     super();
     this.title = "";
+    this.myImage = new URL("./images/jr-logo.png", import.meta.url).href;
     this.navItems = [
       { href: "/", label: "Home" },
       { href: "/about", label: "About" },
@@ -156,7 +158,7 @@ export class JrNavBar extends DDDSuper(LitElement) {
 <div class="wrapper">
   <div class="bar-items">
     <a class="logo-link" href="/" aria-label="Home">
-      <img src="./images/jr-logo.png" alt="EJRL Logo" class="logo">
+      <img src=${this.myImage} alt="EJRL Logo" class="logo">
     </a>
     <div class="nav-links">
       ${this.navItems.map((item) => {
