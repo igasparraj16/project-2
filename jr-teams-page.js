@@ -60,7 +60,7 @@ export class JrTeamsPage extends DDDSuper(I18NMixin(LitElement)) {
         font-size: var(--project-2-label-font-size, var(--ddd-font-size-s));
       }
       h1 {
-        color: var(--ddd-theme-default-coalyGray);
+        color: light-dark(var(--ddd-theme-default-coalyGray), var(--ddd-theme-default-white));
       }
       .content {
         padding: var(--ddd-spacing-4);

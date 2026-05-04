@@ -129,24 +129,23 @@ export class JrContactPage extends DDDSuper(I18NMixin(LitElement)) {
       <div class="contact-grid">
         <div class="card">
           <h2>General Inquiries</h2>
-          <p>Email: <a href="mailto:info@ijru.org">info@ijru.org</a></p>
+          <p>Email: <a href="mailto:info@ejrl.org">info@ejrl.org</a></p>
           <p>For league information, event questions, and public updates.</p>
         </div>
         <div class="card">
           <h2>Team Questions</h2>
-          <p>Email: <a href="mailto:teams@ijru.org">teams@ijru.org</a></p>
+          <p>Email: <a href="mailto:teams@ejrl.org">teams@ejrl.org</a></p>
           <p>For team schedules, rosters, and competition coordination.</p>
         </div>
         <div class="card">
           <h2>Media and Partnerships</h2>
-          <p>Email: <a href="mailto:media@ijru.org">media@ijru.org</a></p>
+          <p>Email: <a href="mailto:media@ejrl.org">media@ejrl.org</a></p>
           <p>For press, sponsorships, and collaboration opportunities.</p>
         </div>
       </div>
       <div class="note">
         <p>
-          IJRU is an independent, non-political sports organization based in
-          Ohio. Please include your name, topic, and the event or team you’re
+          Please include your name, topic, and the event or team you’re
           asking about so your message can be routed quickly.
         </p>
       </div>

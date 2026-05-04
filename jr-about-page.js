@@ -99,25 +99,17 @@ export class JrAboutPage extends DDDSuper(I18NMixin(LitElement)) {
         helped shape the sport into a modern international competition with a
         clear structure and a worldwide community.
       </p>
-      <p>
-        Today that work continues through the International Jump Rope Union
-        (IJRU), the sole international governing body for jump rope. IJRU was
-        formed through the merger of Fédération Internationale de Saut à la
-        Corde - International Rope Skipping Federation (FISAC-IRSF) and the
-        World Jump Rope Federation (WJRF), bringing together decades of
-        championship history and international leadership.
-      </p>
+
       <div class="highlight">
         <p>
           Together, those organizations have produced 21 world championships.
-          IJRU now holds Observer Status with the Global Association of
-          International Sports Federations (GAISF) and continues building a
+          EJRL now holds Observer Status and continues building a
           path toward greater recognition in the Olympic movement.
         </p>
       </div>
       <p>
-        IJRU is an independent, non-political sports governance organization
-        registered in Ohio and recognized as a 501(c)(3) nonprofit.
+        EJRL is an independent, non-political sports governance organization
+         recognized as a 501(c)(3) nonprofit.
       </p>
     </div>
     <jr-footer></jr-footer>

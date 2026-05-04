@@ -63,6 +63,21 @@ export class JrNavBar extends DDDSuper(LitElement) {
         justify-content: space-between;
         align-items: center;
       }
+      .logo-link {
+        display: inline-flex;
+        align-items: center;
+        padding: var(--ddd-spacing-1);
+        border-radius: 16px;
+        background-color: var(--jr-pill-color, #5D576B);
+      }
+      @media (prefers-color-scheme: dark) {
+        :host .logo-link {
+          background-color: var(--jr-pill-color, #B9B3C8);
+        }
+      }
+      .logo-link:focus-visible {
+        outline: none;
+      }
       .nav-links {
         display: flex;
         justify-content: space-between;
@@ -125,6 +140,12 @@ export class JrNavBar extends DDDSuper(LitElement) {
       }
       .logo {
         height: 100px;
+        transition: filter 0.15s ease, transform 0.15s ease;
+      }
+      .logo-link:hover .logo,
+      .logo-link:focus-visible .logo {
+        filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 0.5));
+        transform: translateY(-1px);
       }
     `];
   }
@@ -134,7 +155,9 @@ export class JrNavBar extends DDDSuper(LitElement) {
     return html`
 <div class="wrapper">
   <div class="bar-items">
-    <img src="https://www.sportaccord.sport/iff-2023/wp-content/uploads/sites/2/2020/11/IJRU.png" alt="IJRU Logo" class="logo">
+    <a class="logo-link" href="/" aria-label="Home">
+      <img src="./images/jr-logo.png" alt="EJRL Logo" class="logo">
+    </a>
     <div class="nav-links">
       ${this.navItems.map((item) => {
         if (item.href !== "/teams") {

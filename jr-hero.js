@@ -67,7 +67,7 @@ export class JrHero extends DDDSuper(LitElement) {
         position: absolute;
         inset: 0;
         background: var(--jr-surface-color, var(--ddd-theme-default-black));
-        opacity: 0.42;
+        opacity: 0.60;
       }
       .hero-content {
         position: relative;
@@ -83,20 +83,21 @@ export class JrHero extends DDDSuper(LitElement) {
         font-size: var(--project-2-label-font-size, var(--ddd-font-size-s));
       }
       h1 {
-        color: light-dark(var(--ddd-theme-default-coalyGray), var(--ddd-theme-default-white));
+        color: light-dark(var(--ddd-theme-default-black), var(--ddd-theme-default-white));
         font-size: clamp(2.1rem, 4.6vw, 4.25rem);
         line-height: 1.05;
         margin: 0;
       }
       .subtitle {
         margin: 0;
-        color: light-dark(var(--ddd-theme-default-coalyGray), #8FD1FF);
+        color: light-dark(var(--ddd-theme-default-black), #8FD1FF);
         font-size: clamp(0.72rem, 1.35vw, 0.95rem);
         font-weight: var(--ddd-font-weight-bold);
         letter-spacing: 0.12em;
       }
       .about-link {
         text-decoration: none;
+        color: light-dark(var(--ddd-theme-default-coalyGray), var(--ddd-theme-default-black));
       }
     `];
   }
