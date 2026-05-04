@@ -149,6 +149,32 @@ export class JrNavBar extends DDDSuper(LitElement) {
         filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 0.5));
         transform: translateY(-1px);
       }
+      @media (max-width: 640px) {
+        .bar-items {
+          flex-direction: column;
+          align-items: center;
+          gap: var(--ddd-spacing-4);
+        }
+
+        .logo {
+          height: 72px;
+        }
+
+        .nav-links {
+          width: 100%;
+          justify-content: center;
+          gap: var(--ddd-spacing-2);
+          margin-top: 0;
+        }
+
+        .nav-links a {
+          padding: var(--ddd-spacing-2) var(--ddd-spacing-3);
+        }
+
+        .dropdown {
+          width: min(260px, calc(100vw - var(--ddd-spacing-4)));
+        }
+      }
     `];
   }
 
