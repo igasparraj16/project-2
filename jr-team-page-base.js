@@ -59,7 +59,7 @@ export class JrTeamPageBase extends DDDSuper(I18NMixin(LitElement)) {
         gap: var(--ddd-spacing-4);
       }
       h1 {
-        margin: 0;
+        margin: var(--ddd-spacing-0);
         color: var(--jr-text-color, var(--ddd-theme-default-coalyGray));
         text-align: center;
       }
@@ -77,7 +77,7 @@ export class JrTeamPageBase extends DDDSuper(I18NMixin(LitElement)) {
         border-radius: var(--ddd-radius-lg);
       }
       .description {
-        margin: 0;
+        margin: var(--ddd-spacing-0);
         color: var(--jr-text-color, var(--ddd-theme-default-coalyGray));
         line-height: var(--ddd-lh-140);
         text-align: left;

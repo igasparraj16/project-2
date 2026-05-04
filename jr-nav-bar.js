@@ -69,7 +69,7 @@ export class JrNavBar extends DDDSuper(LitElement) {
         display: inline-flex;
         align-items: center;
         padding: var(--ddd-spacing-1);
-        border-radius: 16px;
+        border-radius: var(--ddd-radius-lg);
         background-color: var(--jr-pill-color, #5D576B);
       }
       @media (prefers-color-scheme: dark) {
@@ -95,7 +95,7 @@ export class JrNavBar extends DDDSuper(LitElement) {
         align-items: center;
         justify-content: center;
         padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
-        border-radius: 9999px;
+        border-radius: var(--ddd-radius-rounded);
         background-color: var(--jr-pill-color, #5D576B);
         color: var(--jr-nav-text-color, var(--jr-pill-text-color, var(--ddd-theme-default-white)));
         text-decoration: none;
@@ -164,7 +164,7 @@ export class JrNavBar extends DDDSuper(LitElement) {
           width: 100%;
           justify-content: center;
           gap: var(--ddd-spacing-2);
-          margin-top: 0;
+          margin-top: var(--ddd-spacing-0);
         }
 
         .nav-links a {

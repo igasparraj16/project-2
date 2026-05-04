@@ -65,7 +65,7 @@ export class JrFooter extends DDDSuper(LitElement) {
       }
       h4 {
         color: var(--jr-footer-text-color, #203230);
-        font-weight: normal;
+        font-weight: var(--ddd-font-weight-regular);
         text-align: left;
         width: 100%;
       }

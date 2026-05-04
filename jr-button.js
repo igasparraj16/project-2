@@ -45,13 +45,13 @@ export class JrButton extends DDDSuper(LitElement) {
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {
-        margin: var(--ddd-spacing-2) 0;
+        margin: var(--ddd-spacing-2) var(--ddd-spacing-0);
         padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
         display: inline-flex;
         width: fit-content;
         align-items: center;
         background-color: var(--jr-pill-color, #5D576B);
-        border-radius: 9999px;
+        border-radius: var(--ddd-radius-rounded);
       }
       h1 span {
         font-size: var(--project-2-label-font-size, var(--ddd-font-size-s));
@@ -62,7 +62,7 @@ export class JrButton extends DDDSuper(LitElement) {
       h4 {
         color: var(--jr-pill-text-color, var(--ddd-theme-default-white));
         font-size: var(--ddd-font-size-4xs);
-        margin: 0;
+        margin: var(--ddd-spacing-0);
         line-height: var(--ddd-lh-120);
       }
 

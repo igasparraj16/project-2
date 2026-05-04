@@ -65,13 +65,13 @@ export class JrContactPage extends DDDSuper(I18NMixin(LitElement)) {
       .content {
         padding: var(--ddd-spacing-4) var(--ddd-spacing-4) var(--ddd-spacing-8);
         max-width: 900px;
-        margin: 0 auto;
+        margin: var(--ddd-spacing-0) auto;
         display: flex;
         flex-direction: column;
         gap: var(--ddd-spacing-4);
       }
       .content p {
-        margin: 0;
+        margin: var(--ddd-spacing-0);
         color: var(--jr-text-color, var(--ddd-theme-default-coalyGray));
         line-height: var(--ddd-lh-140);
         font-size: var(--ddd-font-size-s);
@@ -85,7 +85,7 @@ export class JrContactPage extends DDDSuper(I18NMixin(LitElement)) {
         padding: var(--ddd-spacing-4);
         border-radius: var(--ddd-radius-lg);
         background-color: var(--jr-card-surface-color, #F3F0E8);
-        border: 1px solid var(--jr-card-border-color, rgba(93, 87, 107, 0.15));
+        border: 1px solid var(--jr-card-border-color, rgba(93, 87, 107, 0.15)); // not ddd because specific variables needed
       }
       .card h2 {
         margin: 0 0 var(--ddd-spacing-2);

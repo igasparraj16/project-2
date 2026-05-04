@@ -65,7 +65,7 @@ export class JrHero extends DDDSuper(LitElement) {
       .wrapper::before {
         content: "";
         position: absolute;
-        inset: 0;
+        inset: var(--ddd-spacing-0);
         background: var(--jr-surface-color, var(--ddd-theme-default-black));
         opacity: 0.60;
       }
@@ -84,20 +84,29 @@ export class JrHero extends DDDSuper(LitElement) {
       }
       h1 {
         color: light-dark(var(--ddd-theme-default-black), var(--ddd-theme-default-white));
-        font-size: clamp(2.1rem, 4.6vw, 4.25rem);
-        line-height: 1.05;
-        margin: 0;
+        font-size: var(--ddd-font-size-3xl);
+        line-height: 1.05; //not ddd because nothing was close to what i needed
+        margin: var(--ddd-spacing-0);
       }
       .subtitle {
-        margin: 0;
+        margin: var(--ddd-spacing-0);
         color: light-dark(var(--ddd-theme-default-black), #8FD1FF);
-        font-size: clamp(0.72rem, 1.35vw, 0.95rem);
+        font-size: var(--ddd-font-size-s);
         font-weight: var(--ddd-font-weight-bold);
-        letter-spacing: 0.12em;
+        letter-spacing: 0.12em; //not ddd because nothing was close to what i needed
       }
       .about-link {
         text-decoration: none;
         color: light-dark(var(--ddd-theme-default-coalyGray), var(--ddd-theme-default-black));
+      }
+      @media (max-width: 767px) {
+        h1 {
+          font-size: var(--ddd-font-size-2xl);
+        }
+
+        .subtitle {
+          font-size: var(--ddd-font-size-xs);
+        }
       }
     `];
   }

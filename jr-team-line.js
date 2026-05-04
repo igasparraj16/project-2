@@ -78,12 +78,12 @@ export class JrTeamLine extends DDDSuper(LitElement) {
         font-size: var(--ddd-font-size-s);
         font-weight: var(--ddd-font-weight-bold);
         line-height: var(--ddd-lh-120);
-        margin: 0;
+        margin: var(--ddd-spacing-0);
       }
       .team-description {
         color: var(--jr-text-color, var(--ddd-theme-default-coalyGray));
         font-size: var(--ddd-font-size-3xs);
-        margin: 0;
+        margin: var(--ddd-spacing-0);
         line-height: var(--ddd-lh-120);
         max-width: 70ch;
       }

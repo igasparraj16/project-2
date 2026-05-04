@@ -93,7 +93,7 @@ export class PlayList extends DDDSuper(I18NMixin(LitElement)) {
       }
       .overlay {
         position: absolute;
-        inset: 0;
+        inset: var(--ddd-spacing-0);
         background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.55) 100%);
       }
       .content {
@@ -119,7 +119,7 @@ export class PlayList extends DDDSuper(I18NMixin(LitElement)) {
         border-radius: var(--ddd-radius-rounded);
         background: rgba(0, 0, 0, 0.4);
         font-size: var(--ddd-font-size-5xs);
-        letter-spacing: 0.08em;
+        letter-spacing: 0.08em; //not ddd because nothing was close to what i needed
         text-transform: uppercase;
       }
       .event-title {
